@@ -5,6 +5,8 @@
   --color-primary-light: #E6EDF2;
   --color-accent: #9B1364;
   --color-accent-dark: #7A0E4E;
+  --color-accent-light: #E056A0;
+  --color-accent-blue: #5AABED;
   --color-on-accent: #FFFFFF;
   --color-bg: #FAF9FB;
   --color-bg-alt: #EEF2F5;
@@ -70,7 +72,10 @@ ul { padding-left: 1.2em; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,20,38,0.55) 0%, rgba(8,20,38,0.55) 40%, rgba(6,14,28,0.92) 100%); }
 .hero-content { position: relative; z-index: 1; padding-bottom: 72px; padding-top: 120px; max-width: 780px; }
-.hero h1 { font-size: clamp(2rem, 4.2vw, 3.2rem); color: #fff; margin-bottom: 20px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; font-weight: 700; color: var(--color-accent-light); margin-bottom: 14px; }
+.hero h1 { font-size: clamp(2rem, 4.2vw, 3.2rem); color: #fff; margin-bottom: 24px; }
+.hero h1 .hl { color: var(--color-accent-blue); }
+.hero h1::after { content: ""; display: block; width: 56px; height: 3px; border-radius: 2px; background: var(--color-accent-light); margin-top: 24px; }
 .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 620px; margin-bottom: 0; }
 
 /* ---------- Sections ---------- */
@@ -143,6 +148,15 @@ ul { padding-left: 1.2em; }
 .feature-list li { margin-bottom: 6px; }
 .placeholder-note { color: var(--color-text-muted); font-style: italic; }
 
+/* Individual device pages */
+.device-page { padding-top: 40px; }
+.device-page h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); max-width: none; margin-bottom: 8px; }
+.device-page .section-intro { margin-bottom: 0; }
+.device-page-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start; margin-top: 36px; }
+.device-page .device-image { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+.device-page .device-body { padding: 0; }
+.device-page .device-body h4:first-child { margin-top: 0; }
+
 .placeholder-image {
   display: flex; align-items: center; justify-content: center;
   background: repeating-linear-gradient(135deg, var(--color-bg-alt), var(--color-bg-alt) 10px, #E0E7EC 10px, #E0E7EC 20px);
@@ -181,6 +195,7 @@ ul { padding-left: 1.2em; }
   .problem-pair { flex-direction: column; align-items: stretch; }
   .problem-pair .stat-bubble { flex: none; }
   .device-grid { grid-template-columns: 1fr; }
+  .device-page-grid { grid-template-columns: 1fr; gap: 32px; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr; }
 }
