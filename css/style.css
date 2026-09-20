@@ -8,7 +8,7 @@
   --color-accent-light: #E056A0;
   --color-accent-blue: #5AABED;
   --color-on-accent: #FFFFFF;
-  --color-bg: #F0F8FE;
+  --color-bg: #E4F2FE;
   --color-bg-alt: #EEF2F5;
   --color-surface: #FFFFFF;
   --color-text: #1A2833;
@@ -49,7 +49,7 @@ ul { padding-left: 1.2em; }
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(240, 248, 254, 0.92);
+  background: rgba(228, 242, 254, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -66,15 +66,26 @@ ul { padding-left: 1.2em; }
 /* Devices dropdown */
 .has-dropdown { position: relative; }
 .dropdown-toggle { background: none; border: none; padding: 0; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; }
-.caret { width: 7px; height: 7px; margin-left: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.15s ease; }
-.has-dropdown.open .caret { transform: rotate(225deg) translateY(-2px); }
-.dropdown { list-style: none; margin: 0; padding: 8px; display: none; position: absolute; top: calc(100% + 14px); left: -16px; min-width: 190px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; box-shadow: var(--shadow-md); z-index: 110; }
+.caret { width: 7px; height: 7px; margin-left: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.1); }
+.has-dropdown.open .caret { transform: rotate(45deg); }
+.dropdown {
+  list-style: none; margin: 0; padding: 8px; position: absolute; top: calc(100% + 14px); left: -16px; min-width: 165px;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; box-shadow: var(--shadow-md); z-index: 110;
+  /* grows out from the "Devices" word */
+  transform-origin: 58px -14px;
+  opacity: 0; visibility: hidden; transform: scale(0.55) translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.1), visibility 0s linear 0.28s;
+}
 .dropdown::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
-.has-dropdown.open .dropdown { display: block; }
+.has-dropdown.open .dropdown { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
 .dropdown a { display: block; padding: 10px 14px; border-radius: 8px; white-space: nowrap; }
 .dropdown a:hover { background: var(--color-primary-light); }
 @media (hover: hover) and (min-width: 641px) {
-  .has-dropdown:hover .dropdown { display: block; }
+  .has-dropdown:hover .caret { transform: rotate(45deg); }
+  .has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret, .dropdown { transition-duration: 0.01s; }
 }
 
 .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; }
@@ -229,7 +240,8 @@ ul { padding-left: 1.2em; }
   .main-nav > ul.open { display: flex; }
   .main-nav a { display: block; padding: 10px 0; }
   .dropdown-toggle { width: 100%; justify-content: space-between; padding: 10px 0; }
-  .dropdown { position: static; min-width: 0; padding: 0 0 4px 16px; border: none; box-shadow: none; background: none; }
+  .dropdown { position: static; min-width: 0; padding: 0 0 4px 16px; border: none; box-shadow: none; background: none; display: none; opacity: 1; visibility: visible; transform: none; transition: none; }
+  .has-dropdown.open .dropdown { display: block; }
   .dropdown::before { display: none; }
   .dropdown a { padding: 10px 0; white-space: normal; }
   .dropdown a:hover { background: none; }
