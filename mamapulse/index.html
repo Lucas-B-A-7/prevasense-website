@@ -27,8 +27,13 @@
         <span></span><span></span><span></span>
       </button>
       <ul id="nav-list">
-        <li><a href="/prevapulse/">PrevaPulse</a></li>
-        <li><a href="/mamapulse/" aria-current="page">MamaPulse</a></li>
+        <li class="has-dropdown">
+          <button type="button" class="dropdown-toggle is-current" aria-expanded="false" aria-haspopup="true" aria-controls="devices-menu">Devices <span class="caret" aria-hidden="true"></span></button>
+          <ul class="dropdown" id="devices-menu">
+          <li><a href="/prevapulse/">PrevaPulse</a></li>
+          <li><a href="/mamapulse/" aria-current="page">MamaPulse</a></li>
+          </ul>
+        </li>
         <li><a href="/#team">Team</a></li>
       </ul>
     </nav>

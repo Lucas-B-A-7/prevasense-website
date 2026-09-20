@@ -35,8 +35,13 @@
         <span></span><span></span><span></span>
       </button>
       <ul id="nav-list">
-        <li><a href="/prevapulse/">PrevaPulse</a></li>
-        <li><a href="/mamapulse/">MamaPulse</a></li>
+        <li class="has-dropdown">
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="devices-menu">Devices <span class="caret" aria-hidden="true"></span></button>
+          <ul class="dropdown" id="devices-menu">
+          <li><a href="/prevapulse/">PrevaPulse</a></li>
+          <li><a href="/mamapulse/">MamaPulse</a></li>
+          </ul>
+        </li>
         <li><a href="/#team">Team</a></li>
       </ul>
     </nav>
@@ -147,7 +152,6 @@
             <img src="/images/prevapulse.jpg" alt="PrevaPulse device with two arm wraps and an OLED display showing HIGH, MODERATE, and NORMAL risk LEDs" loading="lazy">
           </div>
           <div class="device-body">
-            <p class="device-tag">Device 01</p>
             <h3>PrevaPulse</h3>
             <p class="device-subtitle">Portable, non-invasive pulse wave velocity monitoring to support early pre-eclampsia risk assessment</p>
             <p>PrevaPulse is a portable, non-invasive device being developed to support early assessment of pre-eclampsia risk in pregnant women.</p>
@@ -160,6 +164,7 @@
             </ul>
             <p>Designed for use by nurses and midwives, PrevaPulse aims to make arterial-stiffness assessment more accessible in antenatal clinics and low-resource healthcare settings.</p>
             <p>The device is currently at the functional-prototype stage and has undergone preliminary benchtop testing but has not yet been clinically validated.</p>
+            <a class="btn" href="/prevapulse/">Learn more</a>
           </div>
         </article>
 
@@ -168,7 +173,6 @@
             <img src="/images/mamapulse.jpg" alt="MamaPulse wrist-worn device with velcro strap and lit sensor indicator" loading="lazy">
           </div>
           <div class="device-body">
-            <p class="device-tag">Device 02</p>
             <h3>MamaPulse</h3>
             <p class="device-subtitle">Wrist-worn pulse wave velocity monitoring for continuous, independent pre-eclampsia risk assessment</p>
             <p>MamaPulse is a wearable, non-invasive device being developed to support continuous, independent assessment of pre-eclampsia risk in pregnant women.</p>
@@ -181,6 +185,7 @@
             </ul>
             <p>Designed for use by pregnant women at home, MamaPulse aims to make pre-eclampsia risk monitoring accessible without the cost or distance of a clinic visit, while also giving clinicians a longitudinal risk history at a patient's first appointment.</p>
             <p>The device is currently at the functional-prototype stage: it has passed benchtop testing for battery life, drop durability, weight, compactness, electrical safety, data storage, and ease of use, but its pulse-wave-velocity algorithm cannot yet reliably calculate risk accurately enough for clinical screening, and MamaPulse has not yet been clinically validated.</p>
+            <a class="btn" href="/mamapulse/">Learn more</a>
           </div>
         </article>
 
